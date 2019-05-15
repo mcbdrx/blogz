@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1>Write a Post</h1>
+<div class="blog">
+    <form method='POST' action="/newpost">
+        <label>
+            Title:
+            <input type="text" name="title" value="{{ blog_title }}" />
+        </label>
+        <br>
+        {% with messages = get_flashed_messages(category_filter=["title_error"]) %}
+                
+                    
+        {% if messages %}
+            {% for message in messages %}
+                <span class="{{category}}" style="color: red;">{{message}}</span>
+            {% endfor %}
+        {% endif %}
+    
+    
+        {% endwith %}
+        <br>
+            <textarea rows="20" cols="60" name="body">{{ blog_body }}</textarea>
+        <br>
+        {% with messages = get_flashed_messages(category_filter=["body_error"]) %}
+                
+                    
+        {% if messages %}
+            {% for message in messages %}
+                <span class="{{category}}" style="color: red;">{{message}}</span>
+            {% endfor %}
+        {% endif %}
+    
+    
+        {% endwith %}
+<br>
+        <input type="submit" value='Post' id="submit_button"/>
+       
+    </form>
+</div>
+
+
+{% endblock %}
