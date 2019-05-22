@@ -4,21 +4,35 @@
 
 
 {% if blogs|length == 0 %}
-<h1>Blog Posts</h1>
-<div class="blog">
+<div class="container">
+    <div style="background:transparent !important" class="jumbotron jumbotron-fluid">
+      <h1>{{name}}</h1>
+      <hr class="my-4">
+    </div>
+</div>
+
+<div class="container">
 
     <p>No blogs yet</p>
 
 </div>
 
-<div class="blog">   
+<div class="container">   
 {% else %}
-<h1>Blog Posts</h1>
+<div class="container">
+    <div style="background:transparent !important" class="jumbotron jumbotron-fluid">
+      <h1>{{name}}</h1>
+      <hr class="my-4">
+    </div>
+</div>
+<div class="blog">
 {% for blog in blogs %}
     <h2><a href="/blogs?id={{blog.id}}">{{blog.title}}</a></h2>
     <p>{{blog.body}}</p>
+    <h6>Written by: <small><a href="blogs?user={{blog.owner.username}}">{{blog.owner.username}}</a></small></h6>
 {% endfor %}
 {% endif %}
+</div>
 </div>
 
 {% endblock %}

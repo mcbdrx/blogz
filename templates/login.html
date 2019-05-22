@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+    <div style="background:transparent !important" class="jumbotron jumbotron-fluid">
+      <h1>Login</h1>
+      <hr class="my-4">
+    </div>
+</div>
+<div class="container">
+  <form action="/login" method="POST">
+    <table>
+        <tr>
+            <td><label for="username">Username</label></td>
+            <td>
+                <input name="username" type="text" value="{{ username }}">
+            </td>
+        </tr>
+        <br>
+        {% with messages = get_flashed_messages(category_filter=["username_error"]) %}
+                
+                    
+        {% if messages %}
+            {% for message in messages %}
+                <span class="{{category}}" style="color: red;">{{message}}</span>
+            {% endfor %}
+        {% endif %}
+        {% endwith %}
+        <br>
+        <tr>
+            <td><label for="password">Password</label></td>
+            <td>
+                <input name="password" type="password">
+            </td>
+        </tr>
+        {% with messages = get_flashed_messages(category_filter=["password_error"]) %}
+                
+                    
+        {% if messages %}
+            {% for message in messages %}
+                <span class="{{category}}" style="color: red;">{{message}}</span>
+            {% endfor %}
+        {% endif %}
+        {% endwith %}
+        <br>
+    </table>
+    <input type="submit" value="Login">
+    <br>
+    <span>Don't have an account? <a href="/signup">Create one!</a></span>
+</form>
+</div>
+{% endblock %}

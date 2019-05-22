@@ -1,6 +1,20 @@
+
+
+.container {
+    padding-top: 50px;
+    display: block;
+    float: center;
+}
+
+.jumbotron {
+    margin-top: 5px;
+    padding-top: 20px;
+}
+
 .blog {
     display: block;
     text-align: center;
+    
 }
 
 h1 {
@@ -12,4 +26,8 @@ h1 {
 #submit_button {
     float: center;
     margin-bottom: 50px;
+}
+
+a {
+    color: rgb(71, 71, 71);
 }

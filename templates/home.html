@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+
+<div class="container">
+    <dl>
+      <dt>
+          <div class="container">
+            <div style="background:transparent !important" class="jumbotron jumbotron-fluid">
+              <h1>Users</h1>
+              <hr class="my-4">
+            </div>
+        </div>
+        </dt>
+        <div class="blog">
+      {% for user in users %}
+      <dd>• <a href="blogs?user={{user.username}}">{{user.username}}</a></dd>
+      {% endfor %}
+    </div>
+    </dl>     
+</div>
+
+
+{% endblock %}
